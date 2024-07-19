@@ -45,6 +45,9 @@ func (s *StringSlice) Set(value string) error {
 		return nil
 	}
 
+	s.separator.disabled = true
+	s.separator.customized = true
+
 	for _, t := range s.separator.flagSplitMultiValues(value) {
 		if !s.keepSpace {
 			t = strings.TrimSpace(t)
